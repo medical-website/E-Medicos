@@ -1448,12 +1448,10 @@ select.form-control:not([size]):not([multiple]){
 }
 
 
-
-
-
-
-
-
+.pk
+{
+    size:40px;
+}
 
 
 
