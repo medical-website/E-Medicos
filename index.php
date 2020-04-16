@@ -125,8 +125,12 @@
       </li>
 						<li><a class="nav-link" href="#search1">Search</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
-                        <li><a class="nav-link" href="#">ADMIN LOGIN</a>
-						<div href="login.html">
+						<li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  ADMIN LOGIN
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navdropdown">
+						  <a class="dropdown-item" href="login1.php">LogIN</a>
 						</div>
 						</li>
 
