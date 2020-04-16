@@ -3,26 +3,44 @@
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+	
+	<style>
+		.content-table {
+			border-collapse: collapse;
+			margin: 25px 0;
+			font-size: 0.9em;
+			min-width: 400px;
+			border-radius: 5px 5px 0 0;
+			overflow: hidden;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+		}
+		.content-table thead tr {
+			background-color: #009879
+			color: #ffffff;
+			
+			font-weight: bold;
+		}
+		.content-table th,
+		.content-table td {
+			padding: 12px 15px;
+		}
+		.content-table tbody tr {
+			border-bottom: 1px solid #dddddd;
+		}
+		.content-table tbody tr:nth-of-type(even) {
+			background-color: #f3f3f3;
+		}
+		.content-table tbody tr:last-of-type {
+			border-bottom: 2px solid #009879;
+		}
+	</style>
    
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
     <title>E-Medicos</title>  
-	<style type="text/css">
-	table{
-		border-collapse: collapse;
-		width: 100%;
-		color:  red ;
-		font-family: monospace;
-		font-size: 25px;
-		text-align: left;
-	}
-	th{
-		background-color:   #0d780b;
-		color: white;
-	}
-	</style>
+	
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -562,7 +580,7 @@ Drugs are substances that change a person's physical or mental state. The vast m
 <form method="post">
 <label>Search</label>
 <input type="text" name="search" class="form-control" placeholder="ENTER THE NAME OF MEDICINE YOU WANT TO ENQUIRE ABOUT">
-<input type="submit" name="submit">
+<input type="submit" name="submit" value="Search"/>
 
 </form>
 <?php
@@ -581,18 +599,21 @@ if(isset($_POST["submit"]))
 	{
 		?>
 		<br><br><br>
-		<table>
+		<table class="content-table">
+		<thead>
 			<tr>
 				<th>Name</th>
 				<th>Purpose</th>
 				<th>Salt</th>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><?php echo $row ->Name; ?></td>
 				<td><?php echo $row ->Purpose;?></td>
 				<td><?php echo $row ->Salts;?></td>
 			</tr>
-
+		</tbody>
 		</table>
 <?php
 	}
