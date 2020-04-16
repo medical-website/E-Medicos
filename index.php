@@ -9,7 +9,7 @@
 			border-collapse: collapse;
 			margin: 25px 0;
 			font-size: 0.9em;
-			min-width: 400px;
+			min-width: 100%;
 			border-radius: 5px 5px 0 0;
 			overflow: hidden;
 			box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -136,7 +136,7 @@
           <a class="dropdown-item" href="cough.html">COUGH </a>
           <a class="dropdown-item" href="headache.html">HEADACHE </a>
           <a class="dropdown-item" href="bloodpressure.html">BLOOD PRESSURE </a>
-          <a class="dropdown-item" href="#">DIABETES </a>
+          <a class="dropdown-item" href="diabetes.html">DIABETES </a>
 
 
         </div>
