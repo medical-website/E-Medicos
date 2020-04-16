@@ -1,12 +1,23 @@
 <?php
 		$conn = mysqli_connect('localhost','root','','insertdb');
 ?>
-<form action="" method="post">
-Email: <input type="text" name="email" value=""/><br><br>
-Password: <input type="password" name="password" value=""/><br><br>
-<input type="submit" name="submit" value="Login"/>
+<html>
+<head>
+	<title>Admin Log In</title>
+	<link rel = "stylesheet" type="text/css" href="login1.css"/>
+</head>
+<body>
+<div class="contact-title">
+	<h1>ADMIN LOGIN FORM</h1>
+</div>
+<div class="contact-form">
+<form id="contact-form" method="post" action="">
+<input name="email" type="text" class="form-control" placeholder="Enter Your Email" value=""/><br><br>
+<input name="password" type="password" class="form-control" placeholder="Enter Your Password" value=""/><br><br>
+<input type="submit"  class="form-control submit"  name="submit" value="Login"/>
 </form>
-
+</body>
+</html>
 <?php
 if(isset($_POST['submit']))
 {
