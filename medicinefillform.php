@@ -77,9 +77,8 @@
 				</button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
-                        
-						<li><a class="nav-link" href="#contact">Contact</a></li>
-						<li><a class="nav-link active" href="index.php">Log Out</a></li>
+   						<li><a class="nav-link" href="#contact">Contact</a></li>
+						<li><a class="nav-link active" href="login1.php">Log Out</a></li>
                     </ul>
                 </div>
             </div>
