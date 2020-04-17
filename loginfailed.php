@@ -1,23 +1,3 @@
-<?php
-		$conn = mysqli_connect('localhost','root','','insertdb');
-		if(isset($_POST['submit']))
-{
-	$email = $_POST['email'];
-	$pwd = $_POST['password'];
-	$query = "SELECT * FROM login1 WHERE Email='$email' && Password='$pwd'";
-	$data = mysqli_query($conn, $query);
-	$total = mysqli_num_rows($data);
-	if($total == 1)
-	{
-		header('location:loginfailed.php');
-	}
-	else
-	{
-		header('location:loginfailed.php');
-		//require "loginfailed.php";		
-	}
-}
-?>
 <!DOCTYPE html>
 <html lang="en"><!-- Basic -->
 <head>
@@ -28,8 +8,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
  
      <!-- Site Metas -->
-    <title>Admin LogIN Page</title>
-	<link rel = "stylesheet" type="text/css" href="login2.css"/>	
+    <title>LOGIN Failed</title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -53,8 +32,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<!--
-    <script>
+    <!-- <script>
         function action1()
         {
         document.getElementById("ak").innerHTML="The typical symptoms of a cold include cough, runny nose, sneezing, nasal congestion, and a sore throat, sometimes accompanied by muscle ache, fatigue, headache, and loss of appetite."
@@ -67,8 +45,7 @@
         {
         document.getElementById("ck").innerHTML="1. Nasal decongestants:" +" "+ "2. Cough suppressants" +" "+ "3. CExpectorants:" +" "+ "4. D-Cold Total:" +" "+ " 5. vicks vaporub"
         }
-    </script>
-	-->
+    </script> -->
 </head>
 <body id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 
@@ -109,10 +86,10 @@
 	<!-- End top bar -->
 	
 	<!-- Start header -->
-	<header class="top-header">  
+	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.php"><img  class="pk" src="rk.png" alt="image"></a>
+				<a class="navbar-brand" href="index.html"><img  class="pk" src="rk.png" alt="image"></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -121,13 +98,27 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
                         <li><a class="nav-link active" href="index.php">Home</a></li>
-                         <li class="nav-item dropdown"></li>
+                     <!--    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          comman problems
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="fever.html">FEVER</a>
+          <a class="dropdown-item" href="cold.html">COLD </a>
+          <a class="dropdown-item" href="cough.html">COUGH </a>
+          <a class="dropdown-item" href="headache.html">HEADACHE </a>
+          <a class="dropdown-item" href="bloodpressure.html">BLOOD PRESSURE </a>
+          <a class="dropdown-item" href="diabetes.html">DIABETES </a>
+
+
+        </div>
+      </li> -->
 						<li><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-	</header>    
+	</header>
 	<!-- End header -->
 	
 	<!-- Start Banner --
@@ -170,23 +161,21 @@
 	<!-- End Banner -->
 	
 	<!-- Start About us -->
-	
 	<div id="about" class="about-box">
 		<div class="about-a1">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="title-box"> 
-							<h2>Admin LogIN Form</h2>
+						<div class="title-box">
+							<h2>LOGIN FAILED</h2>
 						</div>
 					</div>
 				</div>
-				<!--
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="row align-items-center about-main-info">
 							<div class="col-lg-6 col-md-6 col-sm-12">
-								 
+							<!--
 								<h2> Information About cold</h2>
 								<p>The common cold, also known simply as a cold, is a viral infectious disease of the upper respiratory tract that primarily affects the nose. The throat, sinuses, and larynx may also be affected.  </p>
                                
@@ -199,38 +188,78 @@
 								<button onclick="action3();" class="btn btn-success">Medicines</button><br><br>
                                 <p id="ck"></p>
 
-                                
-							</div> -->
-							<div class="col-lg-6 col-md-6 col-sm-12"> 
-							<div class="contact-title">
-<!--	<h1>ADMIN LOGIN FORM</h1> -->
-</div>
-<div class="contact-form">
-<form id="contact-form" method="post" action="">
-<input name="email" type="text" class="form-control" placeholder="Enter Your Email" value=""/><br><br>
-<input name="password" type="password" class="form-control" placeholder="Enter Your Password" value=""/><br><br>
-<input type="submit"  class="form-control submit"  name="submit" value="LogIN"/>
-</form>
-								<!-- <div class="about-m">
+                             -->  
+							</div>
+							<!-- <div class="col-lg-6 col-md-6 col-sm-12"> -->
+								<!--<div class="about-m"> -->
+								<!--
 									<ul id="banner">
-										<!--<li>
+										<li>
 											<img src="cold1.jpeg" alt="" style="">
 										</li>
 										<li>
 											<img src="cold2.jpg" alt="">
 										</li>
-										-->
-										
-									</ul>
-								</div> 
+										<li>
+										</li>
+									</ul> -->
+								</div>
 							</div>
-						</div>  
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div id="about" class="about-box">
+		<div class="about-a1">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="title-box">
+							<h2>You are not authorized to LOGIN</h2>
+							<h3>Press home button to go back</h3>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<div class="row align-items-center about-main-info">
+							<div class="col-lg-6 col-md-6 col-sm-12">
+							<!--
+								<h2> Information About cold</h2>
+								<p>The common cold, also known simply as a cold, is a viral infectious disease of the upper respiratory tract that primarily affects the nose. The throat, sinuses, and larynx may also be affected.  </p>
+                               
+								<button onclick="action1();" class="btn btn-success">Symptoms</button><br><br>
+                                                                <p id="ak"></p><br>
 
+								<button onclick="action2();" class="btn btn-success">Precautions</button><br><br>
+                                                                <p id="bk"></p><br>
+
+								<button onclick="action3();" class="btn btn-success">Medicines</button><br><br>
+                                <p id="ck"></p>
+
+                             -->  
+							</div>
+							<!-- <div class="col-lg-6 col-md-6 col-sm-12"> -->
+								<!--<div class="about-m"> -->
+								<!--
+									<ul id="banner">
+										<li>
+											<img src="cold1.jpeg" alt="" style="">
+										</li>
+										<li>
+											<img src="cold2.jpg" alt="">
+										</li>
+										<li>
+										</li>
+									</ul> -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 	<!-- End About us -->
 	
 	<!-- Start Services --
@@ -694,7 +723,6 @@
 	<!-- End Blog -->
 	
 	<!-- Start Contact -->
-
 	<div id="contact" class="contact-box">
 		<div class="container">
 			<div class="row">

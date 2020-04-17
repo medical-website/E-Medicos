@@ -1,4 +1,4 @@
-body{
+/*body{
 	margin: 0;
 	padding: 0;
 	text-align: center;
@@ -6,7 +6,7 @@ body{
 	background-size: cover;
 	background-position: center;
 	font-family: sans-serif;
-}
+}*/
 .contact-title
 {
 	margin-top: px;
@@ -50,7 +50,7 @@ form .submit
 }
 form .submit:hover
 {
-	background-color: #f44336;
+	background-color: #6d7a69;
 	cursor: pointer;
 }
 
