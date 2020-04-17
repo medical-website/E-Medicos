@@ -9,7 +9,7 @@
 	$total = mysqli_num_rows($data);
 	if($total == 1)
 	{
-		header('location:loginfailed.php');
+		header('location:medicinefillform.php');
 	}
 	else
 	{
@@ -29,7 +29,7 @@
  
      <!-- Site Metas -->
     <title>Admin LogIN Page</title>
-	<link rel = "stylesheet" type="text/css" href="login2.css"/>	
+	<link rel = "stylesheet" type="text/css" href="login1.css"/>	
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
