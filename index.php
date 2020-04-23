@@ -2,8 +2,8 @@
 <html lang="en"><!-- Basic -->
 <head>
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
-	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<style>
 		.content-table {
 			border-collapse: collapse;
@@ -17,7 +17,7 @@
 		.content-table thead tr {
 			background-color: #009879
 			color: #ffffff;
-			
+
 			font-weight: bold;
 		}
 		.content-table th,
@@ -34,13 +34,13 @@
 			border-bottom: 2px solid #009879;
 		}
 	</style>
-   
+
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
+
      <!-- Site Metas -->
-    <title>E-Medicos</title>  
-	
+    <title>E-Medicos</title>
+
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -54,7 +54,7 @@
     <!-- Pogo Slider CSS -->
     <link rel="stylesheet" href="css/pogo-slider.min.css">
 	<!-- Site CSS -->
-    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="css/style.css">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
@@ -69,7 +69,7 @@
     function action1()
         {
             document.getElementById("rk").innerHTML="We Here at E-Medicos provides an solution to daily life problems like gathering a basic infomation about a medicines like getting to know about what actual ingredients salts are present in a particular medicine ? , For What pupose a particular medicine is being used?,What other medicines can be used in place of a particular medicine is not available? etc. "
-        
+
         }
 </script>
 </head>
@@ -82,7 +82,7 @@
 		</div>
     </div>end loader -->
     <!-- END LOADER -->
-	
+
 	<!-- Start top bar --
 	<div class="main-top">
 		<div class="container">
@@ -110,7 +110,7 @@
 		</div>
 	</div>
 	<!-- End top bar -->
-	
+
 	<!-- Start header -->
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
@@ -158,7 +158,7 @@
         </nav>
 	</header>
 	<!-- End header -->
-	
+
 	<!-- Start Banner -->
 	<div class="ulockd-home-slider">
 		<div class="container-fluid">
@@ -190,14 +190,14 @@
 								<a href="#search1" class="btn">Search Medicine</a>
 							</div>
 						</div>
-						
+
 					</div>
 				</div><!-- .pogoSlider -->
 			</div>
 		</div>
 	</div>
 	<!-- End Banner -->
-	
+
 	<!-- Start About us -->
 	<div id="about" class="about-box">
 		<div class="about-a1">
@@ -225,7 +225,7 @@ Drugs are substances that change a person's physical or mental state. The vast m
 							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="about-m">
 									<ul id="banner">
-										
+
 										<li>
 											<img src="images/about-img-02.jpg" alt="">
 										</li>
@@ -242,7 +242,7 @@ Drugs are substances that change a person's physical or mental state. The vast m
 		</div>
 	</div>
 	<!-- End About us -->
-	
+
 	<!-- Start Services --
 	<div id="services" class="services-box">
 		<div class="container">
@@ -254,7 +254,7 @@ Drugs are substances that change a person's physical or mental state. The vast m
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="owl-carousel owl-theme">
@@ -318,7 +318,7 @@ Drugs are substances that change a person's physical or mental state. The vast m
 								<a href="#" class="new-btn-d br-2">Read More</a>
 							</div>
 						</div>
-						<div class="item"> 
+						<div class="item">
 							<div class="serviceBox">
 								<div class="service-icon"><i class="fa fa-medkit" aria-hidden="true"></i></div>
 								<h3 class="title">Lorem ipsum dolor</h3>
@@ -350,11 +350,11 @@ Drugs are substances that change a person's physical or mental state. The vast m
 						</div>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 	</div>
 	<!-- End Services -->
-	
+
 	<!-- Start Appointment --
 	<div id="appointment" class="appointment-main">
 		<div class="container">
@@ -462,7 +462,125 @@ Drugs are substances that change a person's physical or mental state. The vast m
 		</div>
 	</div>
 	<!-- End Appointment -->
-	
+	<div id="search1" class="contact-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="title-box">
+					<h2> SEARCH MEDICINES</h2>
+
+
+					<form method="post">
+					<label>Search</label>
+					<input type="text" name="search" class="form-control" placeholder="ENTER THE NAME OF MEDICINE YOU WANT TO ENQUIRE ABOUT">
+					<input type="submit" name="submit" value="SEARCH INFO ABOUT MEDICINE" class="btn btn-success"SEARCH MEDICINE/>
+					<input type="submit" name="Submit" value="SEARCH INFO ABOUT DIESEASE" class="btn btn-success"/>
+
+
+					</form>
+					<?php
+
+					$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
+
+
+					if(isset($_POST["Submit"]))
+					{
+						$str = $_POST["search"];
+						$sth = $con ->prepare("SELECT * FROM `medicines` WHERE Purpose = '$str'");
+
+						$sth -> setFetchMode(PDO:: FETCH_OBJ);
+
+						if($sth->execute())
+						{?>
+							<table class="content-table" style="border-top :2px solid green; border-bottom:2 px solid green;">
+						<thead>
+							<tr  style="border:2px solid green;">
+								<th>Name</th>
+								<th>Purpose</th>
+								<th>Salt</th>
+							</tr>
+						</thead>
+						<?php
+							while($row = $sth -> fetch())
+
+					{
+							?>
+							<br><br><br>
+
+
+								<tr style="border:2px solid green;">
+									<td><?php echo $row ->Name; ?></td>
+									<td><?php echo $row ->Purpose;?></td>
+									<td><?php echo $row ->Salt;?></td>
+								</tr>
+
+
+					<?php
+					}	?>	</table> <?php
+					}
+						else{
+							echo "Name Does not exist";
+						}
+					}
+					?>
+					<?php
+
+					$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
+
+
+					if(isset($_POST["submit"]))
+					{
+						$str1 = $_POST["search"];
+						$sth = $con ->prepare("SELECT * FROM `medicines` WHERE name = '$str1'");
+
+						$sth -> setFetchMode(PDO:: FETCH_OBJ);
+						if(	$sth -> execute())
+						{?>
+							<table class="content-table" style="border-top :2px solid green; border-bottom:2 px solid green;">
+						<thead>
+							<tr  style="border:2px solid green;">
+								<th>Name</th>
+								<th>Purpose</th>
+								<th>Salt</th>
+							</tr>
+						</thead>
+						<?php
+							while($row = $sth -> fetch())
+
+					{
+							?>
+							<br><br><br>
+
+
+								<tr style="border:2px solid green;">
+									<td><?php echo $row ->Name; ?></td>
+									<td><?php echo $row ->Purpose;?></td>
+									<td><?php echo $row ->Salt;?></td>
+								</tr>
+
+
+					<?php
+					}	?>	</table> <?php
+					}
+						else{
+							echo "Name Does not exist";
+						}
+					}
+					?>
+
+
+
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+
+
+
+
+
+
 	<!-- Start Gallery -->
 	<div id="gallery" class="gallery-box">
 		<div class="container-fluid">
@@ -474,16 +592,16 @@ Drugs are substances that change a person's physical or mental state. The vast m
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="popup-gallery row clearfix">
 				<div class="col-md-3 col-sm-6">
 					<div class="box-gallery">
 						<img src="paracetamol-tablets-500x500.jpg" alt="">
-						<div class="box-content">	
+						<div class="box-content">
 							<h3 class="title">Paracetamol</h3>
-                            
+
 							<ul class="icon">
-								<li><a href="paracetamol-tablets-500x500.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>								
+								<li><a href="paracetamol-tablets-500x500.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -494,18 +612,18 @@ Drugs are substances that change a person's physical or mental state. The vast m
 						<div class="box-content">
 							<h3 class="title">Crocin</h3>
 							<ul class="icon">
-								<li><a href="ovadj8toqfzasqihwnai.png"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>								
+								<li><a href="ovadj8toqfzasqihwnai.png"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6">					
+				<div class="col-md-3 col-sm-6">
 					<div class="box-gallery">
 						<img src="allegra_120-500x500.jpg" alt="">
 						<div class="box-content">
                         <h3 class="title">Allegra</h3>
                             <ul class="icon">
-								<li><a href="allegra_120-500x500.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>								
+								<li><a href="allegra_120-500x500.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -513,10 +631,10 @@ Drugs are substances that change a person's physical or mental state. The vast m
 				<div class="col-md-3 col-sm-6">
 					<div class="box-gallery">
 						<img src="download.jpeg" alt="">
-						<div class="box-content">	
+						<div class="box-content">
 							<h3 class="title">Nurofen</h3>
 							<ul class="icon">
-								<li><a href="download.jpeg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>								
+								<li><a href="download.jpeg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -524,21 +642,21 @@ Drugs are substances that change a person's physical or mental state. The vast m
 				<div class="col-md-3 col-sm-6">
 					<div class="box-gallery">
 						<img src="lomotil.png" alt="">
-						<div class="box-content">							
+						<div class="box-content">
 							<h3 class="title">Lomotil</h3>
 							<ul class="icon">
-								<li><a href="lomotil.png"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>								
+								<li><a href="lomotil.png"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 col-sm-6">					
+				<div class="col-md-3 col-sm-6">
 					<div class="box-gallery">
 						<img src="AZEE-250-500x500.jpg" alt="">
 						<div class="box-content">
 							<h3 class="title">Azee</h3>
 							<ul class="icon">
-								<li><a href="AZEE-250-500x500.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>								
+								<li><a href="AZEE-250-500x500.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -549,7 +667,7 @@ Drugs are substances that change a person's physical or mental state. The vast m
 						<div class="box-content">
 							<h3 class="title">Equate</h3>
 							<ul class="icon">
-								<li><a href="medicines-for-nausea_3.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>								
+								<li><a href="medicines-for-nausea_3.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -557,10 +675,10 @@ Drugs are substances that change a person's physical or mental state. The vast m
 				<div class="col-md-3 col-sm-6">
 					<div class="box-gallery">
 						<img src="Telmivib-CH.jpg" alt="">
-						<div class="box-content">		
+						<div class="box-content">
 							<h3 class="title">Telmisartan</h3>
 							<ul class="icon">
-								<li><a href="Telmivib-CH.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>								
+								<li><a href="Telmivib-CH.jpg"><i class="fa fa-plus circle-o" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -569,67 +687,12 @@ Drugs are substances that change a person's physical or mental state. The vast m
 		</div>
 	</div>
 	<!-- End Gallery -->
-	
+
 	<!-- Start Team -->
-    <div id="search1" class="contact-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="title-box">
-						<h2> SEARCH MEDICINES</h2>
-<form method="post">
-<label>Search</label>
-<input type="text" name="search" class="form-control" placeholder="ENTER THE NAME OF MEDICINE YOU WANT TO ENQUIRE ABOUT">
-<input type="submit" name="submit" value="Search"/>
-
-</form>
-<?php
-
-$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
 
 
-if(isset($_POST["submit"]))
-{
-	$str = $_POST["search"];
-	$sth = $con ->prepare("SELECT * FROM `medicines` WHERE Name = '$str'");
-
-	$sth -> setFetchMode(PDO:: FETCH_OBJ);
-	$sth -> execute();
-	if($row = $sth -> fetch())
-	{
-		?>
-		<br><br><br>
-		<table class="content-table">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Purpose</th>
-				<th>Salt</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><?php echo $row ->Name; ?></td>
-				<td><?php echo $row ->Purpose;?></td>
-				<td><?php echo $row ->Salts;?></td>
-			</tr>
-		</tbody>
-		</table>
-<?php
-	}
-	else{
-		echo "Name Does not exist";
-	}
-}
-?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
 	<!-- End Team -->
-	
+
 	<!-- Start Blog --
 	<div id="blog" class="blog-box">
 		<div class="container">
@@ -691,7 +754,7 @@ if(isset($_POST["submit"]))
 		</div>
 	</div>
 	<!-- End Blog -->
-	
+
 	<!-- Start Contact -->
 	<div id="contact" class="contact-box">
 		<div class="container">
@@ -733,13 +796,13 @@ if(isset($_POST["submit"]))
 						</div>
 					</div>
 				</div>
-				
-				
+
+
 			</div>
 		</div>
 	</div>
 	<!-- End Contact --
-	
+
 	<!-- Start Subscribe --
 	<div class="subscribe-box">
 		<div class="container">
@@ -764,7 +827,7 @@ if(isset($_POST["submit"]))
 		</div>
 	</div>
 	<!-- End Subscribe -->
-	
+
 	<!-- Start Footer -->
 	<footer class="footer-box">
 		<div class="container">
@@ -776,7 +839,7 @@ if(isset($_POST["submit"]))
 		</div>
 	</footer>
 	<!-- End Footer -->
-	
+
 	<a href="#" id="scroll-to-top" class="new-btn-d br-2"><i class="fa fa-angle-up"></i></a>
 
 	<!-- ALL JS FILES -->
@@ -785,7 +848,7 @@ if(isset($_POST["submit"]))
 	<script src="js/bootstrap.min.js"></script>
     <!-- ALL PLUGINS -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.pogo-slider.min.js"></script> 
+    <script src="js/jquery.pogo-slider.min.js"></script>
 	<script src="js/slider-index.js"></script>
 	<script src="js/smoothscroll.js"></script>
 	<script src="js/TweenMax.min.js"></script>
@@ -793,10 +856,8 @@ if(isset($_POST["submit"]))
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
-	<script src="js/isotope.min.js"></script>	
-	<script src="js/images-loded.min.js"></script>	
+	<script src="js/isotope.min.js"></script>
+	<script src="js/images-loded.min.js"></script>
     <script src="js/custom.js"></script>
 </body>
 </html>
-
-
