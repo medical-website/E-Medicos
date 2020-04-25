@@ -124,8 +124,12 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
                     <ul class="navbar-nav">
                         <li><a class="nav-link active" href="#home">Home</a></li>
-                        <li><a class="nav-link" href="#about">About Us</a></li>
+                        <li><a class="nav-link" href="#search1">Search</a></li>
+
+                        <li><a class="nav-link" href="#about">About Our Work</a></li>
+
                         <li><a class="nav-link" href="#gallery">Medicines</a></li>
+                        
                          <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           comman problems
@@ -141,7 +145,6 @@
 
         </div>
       </li>
-						<li><a class="nav-link" href="#search1">Search</a></li>
 						<li><a class="nav-link" href="#contact">Contact</a></li>
 						<li class="nav-item dropdown">
                         <a class="nav-link" href="#" id="navdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -159,6 +162,7 @@
 	</header>
 	<!-- End header -->
 
+    
 	<!-- Start Banner -->
 	<div class="ulockd-home-slider">
 		<div class="container-fluid">
@@ -168,7 +172,7 @@
 						<div class="lbox-caption pogoSlider-slide-element">
 							<div class="lbox-details">
 								<h1>Welcome to E-Medicos</h1>
-								<p>Here We contains information about various medicines like salts,purpose and many more.</p>
+								<p>We Here at E-Medicos provides an solution to daily life problems like gathering a basic infomation about a medicines like getting to know about what actual ingredients salts are present in a particular medicine? </p>
 								<a href="#search1" class="btn">Search Medicine</a>
 							</div>
 						</div>
@@ -177,8 +181,8 @@
 						<div class="lbox-caption pogoSlider-slide-element">
 							<div class="lbox-details">
 								<h1>We are Expert in The Field of Medicines</h1>
-								<p>Here We contains information about various medicines like salts,purpose and many more.</p>
-								<a href="#search1" class="btn">Seach Medicine</a>
+								<p>We here at E-Medicos also provides information about a particular diesease like what all medicines are recommended for what diesease.</p>
+								<a href="#search1" class="btn">Seach Disease</a>
 							</div>
 						</div>
 					</div>
@@ -186,7 +190,7 @@
 						<div class="lbox-caption pogoSlider-slide-element">
 							<div class="lbox-details">
 								<h1>Welcome to E-Medicos</h1>
-								<p>Here We contains information about various medicines like salts,purpose and many more.</p>
+								<p> We here at E-Medicos also provide information about for What pupose a particular medicine is being used and also their substitues?</p>
 								<a href="#search1" class="btn">Search Medicine</a>
 							</div>
 						</div>
@@ -197,6 +201,122 @@
 		</div>
 	</div>
 	<!-- End Banner -->
+<div id="search1" class="contact-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="title-box">
+					<h2> SEARCH MEDICINES</h2>
+
+
+					<form action="#search1" method="post">
+					<label>Search</label>
+					<input type="text" name="search" class="form-control" placeholder="ENTER THE NAME OF MEDICINE/DISEASE YOU WANT TO ENQUIRE ABOUT">
+					<input type="submit" name="submit" value="SEARCH INFO ABOUT MEDICINE" class="btn btn-success"SEARCH MEDICINE/>
+					<input type="submit" name="Submit" value="SEARCH INFO ABOUT DISEASE" class="btn btn-success"/>
+
+
+					</form>
+					<?php
+
+					$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
+
+
+					if(isset($_POST["Submit"]))
+					{
+						$str = $_POST["search"];
+						$sth = $con ->prepare("SELECT * FROM `medicines` WHERE Purpose = '$str'");
+
+						$sth -> setFetchMode(PDO:: FETCH_OBJ);
+
+						if($sth->execute())
+						{?>
+							<table class="content-table" style="border-top :2px solid green; border-bottom:2 px solid green;">
+						<thead>
+							<tr  style="border:2px solid green;">
+								<th>Name</th>
+								<th>Purpose</th>
+								<th>Salt</th>
+							</tr>
+						</thead>
+						<?php
+							while($row = $sth -> fetch())
+
+					{
+							?>
+							<br><br><br>
+
+
+								<tr style="border:2px solid green;">
+									<td><?php echo $row ->Name; ?></td>
+									<td><?php echo $row ->Purpose;?></td>
+									<td><?php echo $row ->Salt;?></td>
+								</tr>
+
+
+					<?php
+					}	?>	</table> <?php
+					}
+						else{
+							echo "Name Does not exist";
+						}
+					}
+					?>
+					<?php
+
+					$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
+
+
+					if(isset($_POST["submit"]))
+					{
+						$str1 = $_POST["search"];
+						$sth = $con ->prepare("SELECT * FROM `medicines` WHERE name = '$str1'");
+
+						$sth -> setFetchMode(PDO:: FETCH_OBJ);
+						if(	$sth -> execute())
+						{?>
+							<table class="content-table" style="border-top :2px solid green; border-bottom:2 px solid green;">
+						<thead>
+							<tr  style="border:2px solid green;">
+								<th>Name</th>
+								<th>Purpose</th>
+								<th>Salt</th>
+							</tr>
+						</thead>
+						<?php
+							while($row = $sth -> fetch())
+
+					{
+							?>
+							<br><br><br>
+
+
+								<tr style="border:2px solid green;">
+									<td><?php echo $row ->Name; ?></td>
+									<td><?php echo $row ->Purpose;?></td>
+									<td><?php echo $row ->Salt;?></td>
+								</tr>
+
+
+					<?php
+					}	?>	</table> <?php
+					}
+						else{
+							echo "Name Does not exist";
+						}
+					}
+					?>
+
+
+
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+
+
+
 
 	<!-- Start About us -->
 	<div id="about" class="about-box">
@@ -205,7 +325,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="title-box">
-							<h2>ABOUT US </h2>
+							<h2>ABOUT OUR WORK </h2>
 							<p>E-Medicos</p>
 						</div>
 					</div>
@@ -214,13 +334,13 @@
 					<div class="col-lg-12 col-md-12 col-sm-12">
 						<div class="row align-items-center about-main-info">
 							<div class="col-lg-6 col-md-6 col-sm-12">
-								<h2> Welcome to E-medicos</h2>
+								<h2> E-medicos</h2>
 								<h3>WHAT ARE MEDICINAL DRUGS?</h3>
                                 <P>
 
 Drugs are substances that change a person's physical or mental state. The vast majority of drugs are used to treat medical conditions, both physical and mental. Some, however, are used outside the medical setting for their effects on the mind. These are referred to as recreational drugs, and many of them are illegal in Australia.</P>
 								<p id="rk"></p>
-								<button onclick="action1();">WHAT WE DO?</button>
+								<button onclick="action1();" class="btn btn-success">WHAT WE DO?</button>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="about-m">
@@ -462,123 +582,7 @@ Drugs are substances that change a person's physical or mental state. The vast m
 		</div>
 	</div>
 	<!-- End Appointment -->
-	<div id="search1" class="contact-box">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="title-box">
-					<h2> SEARCH MEDICINES</h2>
-
-
-					<form method="post">
-					<label>Search</label>
-					<input type="text" name="search" class="form-control" placeholder="ENTER THE NAME OF MEDICINE YOU WANT TO ENQUIRE ABOUT">
-					<input type="submit" name="submit" value="SEARCH INFO ABOUT MEDICINE" class="btn btn-success"SEARCH MEDICINE/>
-					<input type="submit" name="Submit" value="SEARCH INFO ABOUT DIESEASE" class="btn btn-success"/>
-
-
-					</form>
-					<?php
-
-					$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
-
-
-					if(isset($_POST["Submit"]))
-					{
-						$str = $_POST["search"];
-						$sth = $con ->prepare("SELECT * FROM `medicines` WHERE Purpose = '$str'");
-
-						$sth -> setFetchMode(PDO:: FETCH_OBJ);
-
-						if($sth->execute())
-						{?>
-							<table class="content-table" style="border-top :2px solid green; border-bottom:2 px solid green;">
-						<thead>
-							<tr  style="border:2px solid green;">
-								<th>Name</th>
-								<th>Purpose</th>
-								<th>Salt</th>
-							</tr>
-						</thead>
-						<?php
-							while($row = $sth -> fetch())
-
-					{
-							?>
-							<br><br><br>
-
-
-								<tr style="border:2px solid green;">
-									<td><?php echo $row ->Name; ?></td>
-									<td><?php echo $row ->Purpose;?></td>
-									<td><?php echo $row ->Salt;?></td>
-								</tr>
-
-
-					<?php
-					}	?>	</table> <?php
-					}
-						else{
-							echo "Name Does not exist";
-						}
-					}
-					?>
-					<?php
-
-					$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
-
-
-					if(isset($_POST["submit"]))
-					{
-						$str1 = $_POST["search"];
-						$sth = $con ->prepare("SELECT * FROM `medicines` WHERE name = '$str1'");
-
-						$sth -> setFetchMode(PDO:: FETCH_OBJ);
-						if(	$sth -> execute())
-						{?>
-							<table class="content-table" style="border-top :2px solid green; border-bottom:2 px solid green;">
-						<thead>
-							<tr  style="border:2px solid green;">
-								<th>Name</th>
-								<th>Purpose</th>
-								<th>Salt</th>
-							</tr>
-						</thead>
-						<?php
-							while($row = $sth -> fetch())
-
-					{
-							?>
-							<br><br><br>
-
-
-								<tr style="border:2px solid green;">
-									<td><?php echo $row ->Name; ?></td>
-									<td><?php echo $row ->Purpose;?></td>
-									<td><?php echo $row ->Salt;?></td>
-								</tr>
-
-
-					<?php
-					}	?>	</table> <?php
-					}
-						else{
-							echo "Name Does not exist";
-						}
-					}
-					?>
-
-
-
-					                    </div>
-					                </div>
-					            </div>
-					        </div>
-					    </div>
-
-
-
-
+	
 
 
 	<!-- Start Gallery -->
