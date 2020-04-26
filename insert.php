@@ -53,7 +53,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="title-box">
-							<h2>Data Added Successfully</h2>
+							<h2></h2>
 						</div>
 					</div>
 				</div>
@@ -81,22 +81,53 @@
 					<div class="col-lg-12">
 						<div class="title-box">
 							<?php
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+$con = mysqli_connect('localhost','root','','insertdb');
+if(!$con)
+{
+	echo mysql_error();
+}
 	
-	$name = $_POST['name'];
-	$purpose = $_POST['purpose'];
-	$salts = $_POST['salts'];
+	/*
+	if(isset($_POST['submit'])){
+		$aname = $_POST['aname'];
+		$apurpose = $_POST['apurpose'];
+		$asalts = $_POST['asalts'];
+		$aphoto = addslashes (file_get_contents($_FILES['aphoto']['tmp_name']));
+		$image = getimagesize($_FILES['aphoto']['tmp_name']);
+		$imgtype = $image['mime'];
+	}
 	
 	$con = mysqli_connect('localhost','root','','insertdb');
 	
-	$query = "INSERT INTO `medicines`(`Name`, `Purpose`, `Salts`) VALUES ('$name', '$purpose', '$salts')";
+	$query = "INSERT INTO `medicine1`(`aname`, `apurpose`, `asalts`,`aphoto`, `aphototype`) VALUES ('$aname', '$apurpose', '$asalts', '$aphoto', '$imgtype')";
 	
 	$run = mysqli_query($con,$query);
 	
 	if($run == TRUE)
 		echo "<a href='medicinefillform.php'><button>Click here to insert more data</button></a>";
 	else
-		echo "Error !";
-?>
+		echo "Error !";*/
+$aname = $_POST['aname'];
+$apurpose = $_POST['apurpose'];
+$asalts = $_POST['asalts'];
+$aphoto = addslashes (file_get_contents($_FILES['aphoto']['tmp_name']));
+$image = getimagesize($_FILES['aphoto']['tmp_name']);
+
+$imgtype = $image['mime'];
+
+$q="INSERT INTO `medicine1`(`aname`, `apurpose`, `asalts`, `aphoto`, `aphototype`) VALUES ('$aname','$apurpose','$asalts','$aphoto','$imgtype')";
+$r = mysqli_query($con, $q);
+if($r)
+{
+	echo "<a href='medicinefillform.php'><button>Click here to insert more data</button></a>";
+}
+else
+{
+	echo "Error";
+}
+?> 
 						</div>
 					</div>
 				</div>

@@ -126,21 +126,24 @@
 						<div class="row align-items-center about-main-info">
 							<div class="col-lg-6 col-md-6 col-sm-12"> 								
                                 <p id="ck"></p>
-								<form class = "submission-form" action="insert.php" method="post">
-			
+								<form class = "submission-form" action="insert.php" method="post" enctype="multipart/form-data">
+								
 									<table class = "content-table">    
 				
 										<tr>
-											<td>Name :</td><td><input type="text" name="name" required="required"/></td>
+											<td>Medicine Name</td><td><input type=text name="aname"></td>
 										</tr>
 										<tr>
-											<td>Purpose:</td><td><input type="text" name="purpose" required="required"/></td>
+											<td>Medicine Purpose</td><td><input type=text name="apurpose"></td>
 										</tr>
 										<tr>
-											<td>Salts:</td><td><input type="text" name="salts" required="required"/></td>
+											<td>Medicine Salts</td><td><input type=text name="asalts"></td>
 										</tr>
 										<tr>
-											<td colspan="2" align="center"><input type="submit" name="submit" value="Submit"/></td>
+											<td>Medicine Photo</td><td><input type=file name="aphoto"></td>
+										</tr>
+										<tr>
+											<td></td><td><input type=submit name="submit" value="Store Information"></td>
 										</tr>
 									</table>    
 								</form>

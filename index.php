@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<style>
+	<!--<style>
 		.content-table {
 			border-collapse: collapse;
 			margin: 25px 0;
@@ -33,7 +33,7 @@
 		.content-table tbody tr:last-of-type {
 			border-bottom: 2px solid #009879;
 		}
-	</style>
+	</style> -->
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -212,100 +212,76 @@
 					<form action="#search1" method="post">
 					<label>Search</label>
 					<input type="text" name="search" class="form-control" placeholder="ENTER THE NAME OF MEDICINE/DISEASE YOU WANT TO ENQUIRE ABOUT">
-					<input type="submit" name="submit" value="SEARCH INFO ABOUT MEDICINE" class="btn btn-success"SEARCH MEDICINE/>
-					<input type="submit" name="Submit" value="SEARCH INFO ABOUT DISEASE" class="btn btn-success"/>
+					<input type="submit" name="submit" value="SEARCH" class="btn btn-success"SEARCH MEDICINE/>
+				<!--	<input type="submit" name="submit" value="SEARCH INFO ABOUT DISEASE" class="btn btn-success"/> -->
 
 
 					</form>
+					
 					<?php
 
-					$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
-
-
-					if(isset($_POST["Submit"]))
+					ini_set('display_errors',1);
+					error_reporting(E_ALL);
+					$con = mysqli_connect('localhost','root','','insertdb');
+					if(!$con)
 					{
-						$str = $_POST["search"];
-						$sth = $con ->prepare("SELECT * FROM `medicines` WHERE Purpose = '$str'");
-
-						$sth -> setFetchMode(PDO:: FETCH_OBJ);
-
-						if($sth->execute())
-						{?>
-							<table class="content-table" style="border-top :2px solid green; border-bottom:2 px solid green;">
-						<thead>
-							<tr  style="border:2px solid green;">
-								<th>Name</th>
-								<th>Purpose</th>
-								<th>Salt</th>
-							</tr>
-						</thead>
-						<?php
-							while($row = $sth -> fetch())
-
-					{
-							?>
-							<br><br><br>
-
-
-								<tr style="border:2px solid green;">
-									<td><?php echo $row ->Name; ?></td>
-									<td><?php echo $row ->Purpose;?></td>
-									<td><?php echo $row ->Salt;?></td>
-								</tr>
-
-
-					<?php
-					}	?>	</table> <?php
+						echo mysql_error();
 					}
-						else{
-							echo "Name Does not exist";
-						}
-					}
-					?>
-					<?php
-
-					$con = new PDO("mysql:host=localhost;dbname=insertdb",'root','');
-
-
+					$m = 0;
 					if(isset($_POST["submit"]))
 					{
 						$str1 = $_POST["search"];
-						$sth = $con ->prepare("SELECT * FROM `medicines` WHERE name = '$str1'");
-
-						$sth -> setFetchMode(PDO:: FETCH_OBJ);
-						if(	$sth -> execute())
-						{?>
-							<table class="content-table" style="border-top :2px solid green; border-bottom:2 px solid green;">
-						<thead>
-							<tr  style="border:2px solid green;">
-								<th>Name</th>
-								<th>Purpose</th>
-								<th>Salt</th>
-							</tr>
-						</thead>
-						<?php
-							while($row = $sth -> fetch())
-
-					{
-							?>
-							<br><br><br>
-
-
-								<tr style="border:2px solid green;">
-									<td><?php echo $row ->Name; ?></td>
-									<td><?php echo $row ->Purpose;?></td>
-									<td><?php echo $row ->Salt;?></td>
-								</tr>
-
-
-					<?php
-					}	?>	</table> <?php
-					}
-						else{
-							echo "Name Does not exist";
+						$p = "SELECT `aname` FROM `medicine1` WHERE aname = '$str1'";
+						$s = mysqli_query($con,$p);
+						$q = "SELECT * FROM `medicine1` WHERE (aname = '$str1') OR (apurpose LIKE '%$str1%')";
+						$r = mysqli_query($con,$q);
+						$z = 0;
+						$m++;
+						if($r)
+						{
+							
+							if($s)
+							{
+								
+							while($row=mysqli_fetch_array($r))
+							{
+								
+								
+								//header("Content-type: text/html");
+								
+								echo "</br>";
+								echo "<p style='color:black; font-size: 25px; class=uppercase;'>MEDICINE: ".$row['aname']."</p>";
+							//	echo $row['aname'];
+								echo "</br>";
+								echo "<p style='color:black; font-size: 25px;'>CAN CURE: ".$row['apurpose']."</p>";
+								//echo $row['apurpose'];
+								echo "</br>";
+								echo "<p style='color:black; font-size: 25px;'>SALTS CONTAINED: ".$row['asalts']."</p>";
+								//echo $row['asalts'];
+								echo "</br>";
+								
+								//$type = "Content-type: ".$row['aphototype'];
+								//header($type);
+								echo "<img src=image.php?aname=".$row['aname']." width=300 height=300/>";
+								
+								$z++;
+							}
+															
+							}
+							if($z == 0)
+							{
+								//echo "";
+								echo "</br>";
+								echo "<p style='color:black; font-size: 25px;'>Either you may have <b>not entered anything</b> or Your search <b>did not met any result</b>, Try again "."</p>";
+								//echo "Sorry name does not exists";
+							}
 						}
+						
 					}
 					?>
+
+						
+					
 
 
 
