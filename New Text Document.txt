@@ -1,0 +1,12 @@
+<?php
+$con = mysql_connect('localhost','root','');
+$db =mysql_select_db("insertdb",$con);
+if(!$db)
+{
+	echo mysql_error();
+}
+$aname = $_Post['Name'];
+$apurpose = $_Post['Purpose'];
+$asalt = $_Post['Salts'];
+$aphoto = addslashes (file_get_contents($_FILES['aphoto']['tmp_name']));
+?>
