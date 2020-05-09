@@ -115,7 +115,7 @@
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.html"><img  class="pk" src="rk.png" alt="image"></a>
+				<a class="navbar-brand" href="index.php"><img  class="pk" src="images/apple-touch-icon.png" alt="image">E-MEDICOS</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -132,7 +132,7 @@
                         
                          <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          comman problems
+          common problems
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="fever.html">FEVER</a>
@@ -744,40 +744,34 @@ Drugs are substances that change a person's physical or mental state. The vast m
 						<h2>CONTACT</h2>
                         <p>For any suggestions and queries contact us</p>
 						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+							<div >
+								<i aria-hidden="true"></i>
 							</div>
-							<div class="media-body dit-right">
-								<h4>RAGHAV KAPOOR</h4>
-								<a href="#">+91 7906384205</a><br>
-                                <p>raghavkapoor021428@gmail.com</p>
-							</div>
+							
 						</div>
                         <div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+							<div >
+								<i  aria-hidden="true"></i>
 							</div>
 							<div class="media-body dit-right">
-								<h4>KAUSTUBH ASTHANA</h4>
+								<h4>E-MEDICOS</h4>
 								<a href="#">+91 8449525994</a>
-                                <P>kaustubhasthana2@gmail.com</P>
+                                <a href="#">+91 7906384205</a>
+
+                                <P>emedicos@gmail.com</P>
 
 							</div>
 						</div>
 						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+							<div >
+								<i aria-hidden="true"></i>
 							</div>
-							<div class="media-body dit-right">
-								<h4>ANSHUL CHAUDHARY</h4>
-								<a href="#">+91 9837421121</a>
-                                <P>chaudharyanshul1407@gmail.com</P>
-							</div>
+							
 						</div>
 					</div>
 				</div>
-
-
+				
+				
 			</div>
 		</div>
 	</div>
