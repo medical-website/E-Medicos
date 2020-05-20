@@ -112,7 +112,7 @@
 	<header class="top-header">  
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.php"><img  class="pk" src="rk.png" alt="image"></a>
+				<a class="navbar-brand" href="index.php"><img  class="pk" src="images/apple-touch-icon.png" alt="image">E-Medicos</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -177,7 +177,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="title-box"> 
-							<h2>Admin LogIN Form</h2>
+							<h2>ADMIN LOGIN Form</h2>
 						</div>
 					</div>
 				</div>
