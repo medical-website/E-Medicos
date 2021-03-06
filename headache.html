@@ -36,14 +36,20 @@
         function action1()
         {
         document.getElementById("ak").innerHTML="Fever , Watching television or looking at a computer screen for a long time, Being tired or sleepy , As an effect of stress ,  By other neurological conditions "
+            document.getElementById("ak1").disabled = true;
+
         }
          function action2()
         {
         document.getElementById("bk").innerHTML="Be consistent. Eat at about the same time every day , Don't skip meals. Fasting increases the risk of migraines , Keep a food journal. Keeping track of the foods you eat and when you experience migraines can help , Avoid foods that trigger migraines. ."
+                        document.getElementById("bk1").disabled = true;
+
         }
          function action3()
         {
         document.getElementById("ck").innerHTML="1.Fioricet " +" "+ "2. ibuprofen" +" "+ "3. Motrin" +" "+ "4.Advil Migraine" +" "+ " 5. aspirin"
+                        document.getElementById("ck1").disabled = true;
+
         }
     </script>
 </head>
@@ -178,13 +184,13 @@
 								<h2> Information About Headache</h2>
 								<p>A headache is when your head hurts. It is not when you hit your head with something and made it hurt that way, but when your head hurts from inside.</p>
                                
-								<button onclick="action1();" class="btn btn-success">Caused By</button><br><br>
+								<button onclick="action1();" class="btn btn-success" id="ak1">Caused By</button><br><br>
                                                                 <p id="ak"></p><br>
 
-								<button onclick="action2();" class="btn btn-success">Precautions</button><br><br>
+								<button onclick="action2();" class="btn btn-success" id="bk1">Precautions</button><br><br>
                                                                 <p id="bk"></p><br>
 
-								<button onclick="action3();" class="btn btn-success">Medicines</button><br><br>
+								<button onclick="action3();" class="btn btn-success" id="ck1">Medicines</button><br><br>
                                 <p id="ck"></p>
 
                                 
@@ -679,30 +685,39 @@
 					<div class="title-box">
 						<h2>CONTACT</h2>
                         <p>For any suggestions and queries contact us</p>
-						<div class="media cont-line">
-							<div >
-								<i aria-hidden="true"></i>
+                        <h4>E-MEDICOS</h4>
+                                <a href="#"><strong>Emedicos@gmail.com</strong></a>
+						<div class="me-line">
+							<div class="-b">
+								<i class="" aria-hidden="true"></i>
 							</div>
-							
+                            
+
+							<div class="media-body dit-right">
+								<h4></h4>
+								<a href="#"></a><br>
+                                <p></p>
+							</div>
 						</div>
-                        <div class="media cont-line">
-							<div >
-								<i  aria-hidden="true"></i>
+                       <div class="media cont-line" col-sm-12>
+							<div class="">
+								<i class="" aria-hidden="true"></i>
 							</div>
 							<div class="media-body dit-right">
-								<h4>E-MEDICOS</h4>
-								<a href="#">+91 8449525994</a>
-                                <a href="#">+91 7906384205</a>
-
-                                <P>emedicos@gmail.com</P>
+								<h4> </h4>
+								<a href="#"></a>
+                                <P></P>
 
 							</div>
 						</div>
 						<div class="media cont-line">
-							<div >
-								<i aria-hidden="true"></i>
+							<div class="">
+								<i class="3" aria-hidden="true"></i>
 							</div>
-							
+							<div class="media-body dit-right">
+								
+                                <P></P>
+							</div>
 						</div>
 					</div>
 				</div>

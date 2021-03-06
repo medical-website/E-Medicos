@@ -68,7 +68,9 @@
     <script>
     function action1()
         {
-            document.getElementById("rk").innerHTML="We Here at E-Medicos provides an solution to daily life problems like gathering a basic infomation about a medicines like getting to know about what actual ingredients salts are present in a particular medicine ? , For What pupose a particular medicine is being used?,What other medicines can be used in place of a particular medicine is not available? etc. "
+            document.getElementById("rk").innerHTML="We Here at E-Medicos provides an solution to daily life problems like gathering a basic infomation about a medicines like getting to know about what actual ingredients salts are present in a particular medicine ? , For What pupose a particular medicine is being used?,What other medicines can be used in place of a particular medicine is not available? etc."
+            document.getElementById("pk").disabled = true;
+
 
         }
 </script>
@@ -153,7 +155,7 @@
 						  ADMIN LOGIN
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navdropdown">
-						  <a class="dropdown-item" href="login1.php">LogIN</a>
+						  <a class="dropdown-item" href="login1.php">Login</a>
 						</div>
 						</li>
 
@@ -184,7 +186,6 @@
 							<div class="lbox-details">
 								<h1>We are Expert in The Field of Medicines</h1>
 								<p>We here at E-Medicos also provides information about a particular diesease like what all medicines are recommended for what diesease.</p>
-								<a href="#search1" class="btn">Seach Disease</a>
 							</div>
 						</div>
 					</div>
@@ -225,6 +226,7 @@
 					ini_set('display_errors',1);
 					error_reporting(E_ALL);
 					$con = mysqli_connect('localhost','root','','insertdb');
+                    
 					if(!$con)
 					{
 						echo mysql_error();
@@ -252,19 +254,19 @@
 								//header("Content-type: text/html");
 								
 								echo "</br>";
-								echo "<p style='color:black; font-size: 25px; class=uppercase;'>MEDICINE: ".$row['aname']."</p>";
+								echo "<p style='color:RED; font-size: 25px; class=uppercase;'>[MEDICINE]: ".$row['aname']."</p>";
 							//	echo $row['aname'];
 								echo "</br>";
-								echo "<p style='color:black; font-size: 25px;'>CAN CURE: ".$row['apurpose']."</p>";
+								echo "<p style='color:RED; font-size: 25px;'>[CAN CURE]: ".$row['apurpose']."</p>";
 								//echo $row['apurpose'];
 								echo "</br>";
-								echo "<p style='color:black; font-size: 25px;'>SALTS CONTAINED: ".$row['asalts']."</p>";
+								echo "<p style='color:RED; font-size: 25px;'>[SALTS CONTAINED]: ".$row['asalts']."</p>";
 								//echo $row['asalts'];
 								echo "</br>";
 								
 								//$type = "Content-type: ".$row['aphototype'];
 								//header($type);
-								echo "<img src=image.php?aname=".$row['aname']." width=300 height=300/>";
+								//echo "<img src=image.php?aname=".$row['aname']." width=200 height=200/>";
 								
 								$z++;
 							}
@@ -316,9 +318,9 @@
 								<h3>WHAT ARE MEDICINAL DRUGS?</h3>
                                 <P>
 
-Drugs are substances that change a person's physical or mental state. The vast majority of drugs are used to treat medical conditions, both physical and mental. Some, however, are used outside the medical setting for their effects on the mind. These are referred to as recreational drugs, and many of them are illegal in Australia.</P>
+Drugs are substances that change a person's physical or mental state. The vast majority of drugs are used to treat medical conditions, both physical and mental. Some, however, are used outside the medical setting for their effects on the mind. These are referred to as recreational drugs, and many of them are illegal.</P>
 								<p id="rk"></p>
-								<button onclick="action1();" class="btn btn-success">WHAT WE DO?</button>
+								<button onclick="action1();" class="btn btn-success" id="pk">WHAT WE DO?</button>
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-12">
 								<div class="about-m">
@@ -745,30 +747,39 @@ Drugs are substances that change a person's physical or mental state. The vast m
 					<div class="title-box">
 						<h2>CONTACT</h2>
                         <p>For any suggestions and queries contact us</p>
-						<div class="media cont-line">
-							<div >
-								<i aria-hidden="true"></i>
+                        <h4>E-MEDICOS</h4>
+                                <a href="#"><strong>Emedicos@gmail.com</strong></a>
+						<div class="me-line">
+							<div class="-b">
+								<i class="" aria-hidden="true"></i>
 							</div>
-							
+                            
+
+							<div class="media-body dit-right">
+								<h4></h4>
+								<a href="#"></a><br>
+                                <p></p>
+							</div>
 						</div>
-                        <div class="media cont-line">
-							<div >
-								<i  aria-hidden="true"></i>
+                       <div class="media cont-line" col-sm-12>
+							<div class="">
+								<i class="" aria-hidden="true"></i>
 							</div>
 							<div class="media-body dit-right">
-								<h4>E-MEDICOS</h4>
-								<a href="#">+91 8449525994</a>
-                                <a href="#">+91 7906384205</a>
-
-                                <P>emedicos@gmail.com</P>
+								<h4> </h4>
+								<a href="#"></a>
+                                <P></P>
 
 							</div>
 						</div>
 						<div class="media cont-line">
-							<div >
-								<i aria-hidden="true"></i>
+							<div class="">
+								<i class="3" aria-hidden="true"></i>
 							</div>
-							
+							<div class="media-body dit-right">
+								
+                                <P></P>
+							</div>
 						</div>
 					</div>
 				</div>

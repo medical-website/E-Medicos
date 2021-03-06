@@ -32,7 +32,7 @@
 	<header class="top-header">
 		<nav class="navbar header-nav navbar-expand-lg">
             <div class="container">
-				<a class="navbar-brand" href="index.php"><img  class="pk" src="rk.png" alt="image"></a>
+				<a class="navbar-brand" href="index.php"><img  class="pk" src="images/apple-touch-icon.png" alt="image">E-MEDICOS</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
 					<span></span>
 					<span></span>
@@ -112,12 +112,8 @@ if(!$con)
 $aname = $_POST['aname'];
 $apurpose = $_POST['apurpose'];
 $asalts = $_POST['asalts'];
-$aphoto = addslashes (file_get_contents($_FILES['aphoto']['tmp_name']));
-$image = getimagesize($_FILES['aphoto']['tmp_name']);
 
-$imgtype = $image['mime'];
-
-$q="INSERT INTO `medicine1`(`aname`, `apurpose`, `asalts`, `aphoto`, `aphototype`) VALUES ('$aname','$apurpose','$asalts','$aphoto','$imgtype')";
+$q="INSERT INTO `medicine1`(`aname`, `apurpose`, `asalts`) VALUES ('$aname','$apurpose','$asalts')";
 $r = mysqli_query($con, $q);
 if($r)
 {
@@ -148,42 +144,46 @@ else
 				</div>
 			</div>
 		</div>
-	<div id="contact" class="contact-box">
+	
+    <div id="contact" class="contact-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="title-box">
 						<h2>CONTACT</h2>
                         <p>For any suggestions and queries contact us</p>
-						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                        <h4>E-MEDICOS</h4>
+                                <a href="#"><strong>Emedicos@gmail.com</strong></a>
+						<div class="me-line">
+							<div class="-b">
+								<i class="" aria-hidden="true"></i>
 							</div>
+                            
+
 							<div class="media-body dit-right">
-								<h4>RAGHAV KAPOOR</h4>
-								<a href="#">+91 7906384205</a><br>
-                                <p>raghavkapoor021428@gmail.com</p>
+								<h4></h4>
+								<a href="#"></a><br>
+                                <p></p>
 							</div>
 						</div>
-                        <div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+                       <div class="media cont-line" col-sm-12>
+							<div class="">
+								<i class="" aria-hidden="true"></i>
 							</div>
 							<div class="media-body dit-right">
-								<h4>KAUSTUBH ASTHANA</h4>
-								<a href="#">+91 8449525994</a>
-                                <P>kaustubhasthana2@gmail.com</P>
+								<h4> </h4>
+								<a href="#"></a>
+                                <P></P>
 
 							</div>
 						</div>
 						<div class="media cont-line">
-							<div class="media-left icon-b">
-								<i class="fa fa-volume-control-phone" aria-hidden="true"></i>
+							<div class="">
+								<i class="3" aria-hidden="true"></i>
 							</div>
 							<div class="media-body dit-right">
-								<h4>ANSHUL CHAUDHARY</h4>
-								<a href="#">+91 9837421121</a>
-                                <P>chaudharyanshul1407@gmail.com</P>
+								
+                                <P></P>
 							</div>
 						</div>
 					</div>
